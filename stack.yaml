@@ -1,0 +1,11 @@
+resolver: lts-6.1
+
+packages:
+- '.'
+
+extra-deps:
+- yamemo-0.6.0
+
+flags: {}
+
+extra-package-dbs: []
