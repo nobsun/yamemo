@@ -1,0 +1,34 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "yamemo:lib"
+
+    - path: "./app/cc/Main.hs"
+      component: "yamemo:exe:cc"
+
+    - path: "./app/cc/Paths_yamemo.hs"
+      component: "yamemo:exe:cc"
+
+    - path: "./app/fib/Main.hs"
+      component: "yamemo:exe:fib"
+
+    - path: "./app/fib/Paths_yamemo.hs"
+      component: "yamemo:exe:fib"
+
+    - path: "./app/lcs/Main.hs"
+      component: "yamemo:exe:lcs"
+
+    - path: "./app/lcs/Paths_yamemo.hs"
+      component: "yamemo:exe:lcs"
+
+    - path: "./app/Main.hs"
+      component: "yamemo:exe:yamemo"
+
+    - path: "./app/Paths_yamemo.hs"
+      component: "yamemo:exe:yamemo"
+
+    - path: "./test"
+      component: "yamemo:test:yamemo-doctest"
+
+    - path: "./test"
+      component: "yamemo:test:yamemo-test"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ! $(pgrep "script") ]; then
+  echo 'start_programming を起動してから lghci を起動してください'
+  exit 1
+fi
+
+stack exec -- ghci $1

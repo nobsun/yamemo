@@ -1,19 +1,32 @@
--- | Memoisation.
--- It's useful for dynamic programming.
+-- # Data.Function.YaMemo
+-- 
+-- ## 言語拡張と`module`宣言
+-- 
+{-# LANGUAGE GHC2021 #-}
+{-# LANGUAGE ImplicitParams #-}
+{-# LANGUAGE ImportQualifiedPost #-}
+{-# LANGUAGE LexicalNegation #-}
+{-# LANGUAGE LambdaCase, MultiWayIf #-}
+{-# LANGUAGE NPlusKPatterns #-}
+{-# LANGUAGE DataKinds, PolyKinds, NoStarIsType, TypeFamilyDependencies #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedRecordDot, NoFieldSelectors, DuplicateRecordFields #-}
 module Data.Function.YaMemo (
-  -- * Module
-    module Data.Function.YaMemo.MemoTableClasses
-  -- * Type
-  , Memo
-  -- * Function
-  , memo
-  , memo'
-  ) where
+    -- * Module
+      module Data.Function.YaMemo.MemoTableClasses
+    -- * Type
+    , Memo
+    -- * Function
+    , memo
+    , memo'
+    ) where
 
 import Control.Monad.State
+import Data.Function
 import Data.Function.YaMemo.MemoTableClasses
 import Data.Function.YaMemo.MemoTableInstances ()
 import Data.Function.YaMemo.NumInstances ()
+import Data.Tuple
 
 type Memo t a b = a -> State (t a b) b
 
@@ -56,5 +69,4 @@ memo' :: (MemoTable t, Ord a)
      -> (a -> (t a b, b))
 memo' = ((swap .) .) . flip runMemo . memoising
 
-swap :: (a, b) -> (b, a)
-swap (x,y) = (y,x)
+

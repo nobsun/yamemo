@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $(pgrep "script") ]; then
+  exit 0
+else
+  script -a -f -c bash programming_session.log
+fi

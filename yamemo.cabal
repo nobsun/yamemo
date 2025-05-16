@@ -1,56 +1,260 @@
-Name:                yamemo
-Version:             0.6.0.1
-Synopsis:            Simple memoisation function
-Description:         This module provides yet another simple memoisation with simple table operations (only lookup and insert).
-Category:            Data
-License:             BSD3
-License-file:        LICENSE
-Author:              Nobuo Yamashita
-Maintainer:          nobsun@sampou.org
-Build-type:          Simple
-Cabal-version:       >= 1.10
-Data-files:          examples/fib.hs, examples/lcs.hs examples/cc.hs
+cabal-version: 1.12
 
-Library
-  Hs-Source-Dirs:      src/
-  Build-depends:       base >=4 && < 5
-                     , mtl >= 2.2
-                     , containers >= 0.5.6
-  Exposed-modules:     Data.Function.YaMemo
-                     , Data.Function.YaMemo.MemoTableClasses
-                     , Data.Function.YaMemo.MemoTableInstances
-                     , Data.Function.YaMemo.NumInstances
-  Ghc-options:         -Wall -fno-warn-orphans
-  Default-Language:    Haskell2010
+-- This file has been generated from package.yaml by hpack version 0.38.0.
+--
+-- see: https://github.com/sol/hpack
 
-Executable memo-cc
-  Hs-Source-dirs:      examples/
-  Main-Is:             cc.hs
-  Build-depends:       base >= 4 && < 5
-                     , containers
-                     , mtl >= 2.2
-                     , containers >= 0.5.6
-                     , yamemo
-  Default-Language:    Haskell2010
+name:           yamemo
+version:        0.6.1.0
+description:    Please see the README on GitHub at <https://github.com/nobsun/yamemo#readme>
+homepage:       https://github.com/nobsun/yamemo#readme
+bug-reports:    https://github.com/nobsun/yamemo/issues
+author:         Nobuo Yamashita
+maintainer:     nobsun@sampou.org
+copyright:      © 2025, Nobuo Yamashita
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
 
-Executable memo-fib
-  Hs-Source-dirs:      examples/
-  Main-Is:             fib.hs
-  Build-depends:       base >= 4 && < 5
-                     , mtl >= 2.2
-                     , containers >= 0.5.6
-                     , yamemo
-  Default-Language:    Haskell2010
+source-repository head
+  type: git
+  location: https://github.com/nobsun/yamemo
 
-Executable memo-lcs
-  Hs-Source-dirs:      examples/
-  Main-Is:             lcs.hs
-  Build-depends:       base >= 4 && < 5
-                     , mtl >= 2.2
-                     , containers >= 0.5.6
-                     , yamemo
-  Default-Language:    Haskell2010
+library
+  exposed-modules:
+      Data.Function.YaMemo
+      Data.Function.YaMemo.MemoTableClasses
+      Data.Function.YaMemo.MemoTableInstances
+      Data.Function.YaMemo.NumInstances
+      Lib
+  other-modules:
+      Paths_yamemo
+  hs-source-dirs:
+      src
+  default-extensions:
+      ImplicitParams
+      ImportQualifiedPost
+      LambdaCase
+      LexicalNegation
+      MultiWayIf
+      NPlusKPatterns
+      OverloadedStrings
+      DataKinds
+      PolyKinds
+      NoStarIsType
+      TypeFamilyDependencies
+      UndecidableInstances
+  ghc-options: -Wall -Wno-unticked-promoted-constructors -Wno-unused-imports -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , doctest
+    , free
+    , hspec
+    , main-tester
+    , mtl
+    , recursion-schemes
+    , time
+    , unicode-show
+    , utf8-string
+    , vector
+  default-language: GHC2021
 
-Source-Repository head
-  type:           git
-  location:       https://github.com/nobsun/oi
+executable cc
+  main-is: Main.hs
+  other-modules:
+      Paths_yamemo
+  hs-source-dirs:
+      app/cc
+  default-extensions:
+      ImplicitParams
+      ImportQualifiedPost
+      LambdaCase
+      LexicalNegation
+      MultiWayIf
+      NPlusKPatterns
+      OverloadedStrings
+      DataKinds
+      PolyKinds
+      NoStarIsType
+      TypeFamilyDependencies
+      UndecidableInstances
+  ghc-options: -Wall -Wno-unticked-promoted-constructors -Wno-unused-imports -Wno-unused-top-binds -Wno-orphans -rtsopts
+  build-depends:
+      array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , doctest
+    , free
+    , hspec
+    , main-tester
+    , mtl
+    , recursion-schemes
+    , time
+    , unicode-show
+    , utf8-string
+    , vector
+    , yamemo
+  default-language: GHC2021
+
+executable fib
+  main-is: Main.hs
+  other-modules:
+      Paths_yamemo
+  hs-source-dirs:
+      app/fib
+  default-extensions:
+      ImplicitParams
+      ImportQualifiedPost
+      LambdaCase
+      LexicalNegation
+      MultiWayIf
+      NPlusKPatterns
+      OverloadedStrings
+      DataKinds
+      PolyKinds
+      NoStarIsType
+      TypeFamilyDependencies
+      UndecidableInstances
+  ghc-options: -Wall -Wno-unticked-promoted-constructors -Wno-unused-imports -Wno-unused-top-binds -Wno-orphans -rtsopts
+  build-depends:
+      array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , doctest
+    , free
+    , hspec
+    , main-tester
+    , mtl
+    , recursion-schemes
+    , time
+    , unicode-show
+    , utf8-string
+    , vector
+    , yamemo
+  default-language: GHC2021
+
+executable yamemo
+  main-is: Main.hs
+  other-modules:
+      Paths_yamemo
+  hs-source-dirs:
+      app
+  default-extensions:
+      ImplicitParams
+      ImportQualifiedPost
+      LambdaCase
+      LexicalNegation
+      MultiWayIf
+      NPlusKPatterns
+      OverloadedStrings
+      DataKinds
+      PolyKinds
+      NoStarIsType
+      TypeFamilyDependencies
+      UndecidableInstances
+  ghc-options: -Wall -Wno-unticked-promoted-constructors -Wno-unused-imports -Wno-unused-top-binds -Wno-orphans -rtsopts
+  build-depends:
+      array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , doctest
+    , free
+    , hspec
+    , main-tester
+    , mtl
+    , recursion-schemes
+    , time
+    , unicode-show
+    , utf8-string
+    , vector
+    , yamemo
+  default-language: GHC2021
+
+test-suite yamemo-doctest
+  type: exitcode-stdio-1.0
+  main-is: doctests.hs
+  other-modules:
+      LibSpec
+      Paths_yamemo
+  hs-source-dirs:
+      test
+  default-extensions:
+      ImplicitParams
+      ImportQualifiedPost
+      LambdaCase
+      LexicalNegation
+      MultiWayIf
+      NPlusKPatterns
+      OverloadedStrings
+      DataKinds
+      PolyKinds
+      NoStarIsType
+      TypeFamilyDependencies
+      UndecidableInstances
+  ghc-options: -Wall -Wno-unticked-promoted-constructors -Wno-unused-imports -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , doctest
+    , free
+    , hspec
+    , main-tester
+    , mtl
+    , recursion-schemes
+    , time
+    , unicode-show
+    , utf8-string
+    , vector
+    , yamemo
+  default-language: GHC2021
+
+test-suite yamemo-test
+  type: exitcode-stdio-1.0
+  main-is: spec.hs
+  other-modules:
+      LibSpec
+      Paths_yamemo
+  hs-source-dirs:
+      test
+  default-extensions:
+      ImplicitParams
+      ImportQualifiedPost
+      LambdaCase
+      LexicalNegation
+      MultiWayIf
+      NPlusKPatterns
+      OverloadedStrings
+      DataKinds
+      PolyKinds
+      NoStarIsType
+      TypeFamilyDependencies
+      UndecidableInstances
+  ghc-options: -Wall -Wno-unticked-promoted-constructors -Wno-unused-imports -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      array
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , doctest
+    , free
+    , hspec
+    , main-tester
+    , mtl
+    , recursion-schemes
+    , time
+    , unicode-show
+    , utf8-string
+    , vector
+    , yamemo
+  default-language: GHC2021

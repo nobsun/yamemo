@@ -1,7 +1,8 @@
--- # Data.Function.YaMemo.MemoTableInstances
+-- # Lib 雛形モジュール
+-- このファイルは`stack new`コマンドで自動的に`src/`に挿入されます
 -- 
 -- ## 言語拡張と`module`宣言
--- 
+-- 最低限の指定をしてある
 {-# LANGUAGE GHC2021 #-}
 {-# LANGUAGE ImplicitParams #-}
 {-# LANGUAGE ImportQualifiedPost #-}
@@ -11,18 +12,15 @@
 {-# LANGUAGE DataKinds, PolyKinds, NoStarIsType, TypeFamilyDependencies #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedRecordDot, NoFieldSelectors, DuplicateRecordFields #-}
-module Data.Function.YaMemo.MemoTableInstances
-      where
+module Lib
+    ( someFunc
+    ) where
 
-import Data.Function.YaMemo.MemoTableClasses
-import Data.Map as M
-
-instance MemoTable M.Map where
-    emptyMemoTable  = M.empty
-    lookupMemoTable = M.lookup
-    insertMemoTable = M.insert
-
-instance MemoTableT M.Map [] where
-    emptyMemoTableT  = M.empty
-    lookupMemoTableT = M.lookup
-    insertMemoTableT = M.insert
+-- ## `doctest`のための記述と定義本体
+{- | 
+「なんか関数」を標準出力に印字する
+>>> someFunc
+なんか関数
+-}
+someFunc :: IO ()
+someFunc = putStrLn "なんか関数"
